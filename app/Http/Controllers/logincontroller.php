@@ -17,8 +17,8 @@ class logincontroller extends Controller
     {
         $n=request('uname');
         $p=request('upass');
-        $res=\DB::select('select * from newlogins where username=? and password=?',[$n,$p]);
-        //$res=newlogin::where('username',$n)->where('password',$p)->first();
+        //$res=\DB::select('select * from newlogins where username=? and password=?',[$n,$p]);
+        $res=newlogin::where('username',$n)->where('password',$p)->first();
         if(isset($res)&&$res!=null)
         {
             Session::put('user',$n);
